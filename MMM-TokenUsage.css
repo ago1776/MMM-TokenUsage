@@ -1,0 +1,30 @@
+.tokenusage { width: 100%; color: #e8e8e8; font-variant-numeric: tabular-nums; }
+.tokenusage .tu-load { color: #9aa4b2; font-size: 16px; padding: 12px 0; }
+
+/* Chart: hoehere Gradient-Saeulen, gerundet */
+.tokenusage .tu-chart { display: flex; align-items: flex-end; gap: 4px; width: 100%; }
+.tokenusage .tu-col { display: flex; flex-direction: column; justify-content: flex-end; align-items: stretch; flex: 1 1 0; min-width: 6px; }
+.tokenusage .tu-stack { display: flex; flex-direction: column; justify-content: flex-end; border-radius: 5px 5px 0 0; overflow: hidden; }
+.tokenusage .tu-stack.tu-we { opacity: .82; }
+.tokenusage .tu-stack.tu-today { box-shadow: 0 0 0 2px rgba(255,255,255,.35); border-radius: 5px 5px 0 0; }
+.tokenusage .tu-bar { width: 100%; background-color: var(--bar-col);
+	background-image: linear-gradient(180deg, rgba(255,255,255,.30) 0%, rgba(255,255,255,.05) 45%, rgba(0,0,0,.10) 100%); }
+.tokenusage .tu-bar-o { border-radius: 4px 4px 0 0; }
+
+.tokenusage .tu-day { height: 16px; text-align: center; font-size: 11px; font-weight: 700; line-height: 16px; color: transparent; }
+.tokenusage .tu-sat { color: #cfd6de; }
+.tokenusage .tu-sun { color: #ffca66; }
+
+/* Legende: luftiger */
+.tokenusage .tu-legend { display: flex; justify-content: space-between; gap: 12px; margin-top: 14px; font-size: 18px; color: #dfe4ea; }
+.tokenusage .tu-li { display: inline-flex; align-items: center; }
+.tokenusage .tu-legend b { color: #fff; font-weight: 700; margin-left: 6px; }
+.tokenusage .tu-dot { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 8px; }
+
+/* Summe: gross, mit Abstand */
+.tokenusage .tu-sum { display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px; font-size: 17px; color: #b9c0c8; }
+.tokenusage .tu-sig { font-size: 22px; color: #fff; }
+.tokenusage .tu-sum b { color: #fff; font-weight: 700; }
+.tokenusage .tu-today-v b { color: #e8e8e8; }
+
+.tokenusage .tu-foot { margin-top: 8px; color: #9aa3ac; font-size: 13px; }
