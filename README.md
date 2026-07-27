@@ -14,7 +14,7 @@ token-tracking script / cron job). A sample `data.json` is included so it works 
 
 ```bash
 cd ~/MagicMirror/modules
-git clone https://github.com/<your-user>/MMM-TokenUsage
+git clone https://github.com/ago1776/MMM-TokenUsage
 ```
 
 ```js
@@ -56,3 +56,4 @@ Place a `data.json` in the module folder (your feeder overwrites it):
 ## License
 
 MIT © Andreas Göpfert
+
