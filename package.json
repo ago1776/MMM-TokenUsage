@@ -1,9 +1,10 @@
 {
   "name": "mmm-tokenusage",
-  "version": "1.0.0",
-  "description": "MagicMirror² module: daily AI token usage as stacked gradient bars (Claude + OpenAI) from a data.json you feed it.",
+  "version": "1.1.0",
+  "description": "MagicMirror² module: daily AI token usage as stacked gradient bars, with an optional OpenClaw/Codex collector.",
   "main": "MMM-TokenUsage.js",
   "keywords": ["MagicMirror", "MMM-TokenUsage", "tokens", "usage", "chart", "ai"],
+  "scripts": { "test": "python3 -m unittest discover -s tests -v" },
   "author": "Andreas Göpfert",
   "license": "MIT",
   "repository": { "type": "git", "url": "git+https://github.com/ago1776/MMM-TokenUsage.git" },
