@@ -1,0 +1,12 @@
+[Unit]
+Description=Build cache-free AI token data for MMM-TokenUsage
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 %h/MagicMirror/modules/MMM-TokenUsage/collectors/openclaw.py --timezone Europe/Berlin --output %h/MagicMirror/modules/MMM-TokenUsage/data.json
+
+# The collector only needs read access to ~/.openclaw and ~/.claude.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=%h/MagicMirror/modules/MMM-TokenUsage
