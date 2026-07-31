@@ -2,25 +2,63 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/ago1776/MMM-TokenUsage/data.schema.json",
   "title": "MMM-TokenUsage data",
-  "type": "object",
-  "required": ["generated", "claude_daily", "openai_daily"],
-  "properties": {
-    "schema_version": { "type": "integer", "minimum": 1 },
-    "generated": { "type": "string" },
-    "days": { "type": "array", "items": { "type": "string" } },
-    "claude_daily": { "type": "array", "items": { "type": "integer", "minimum": 0 }, "minItems": 1 },
-    "openai_daily": { "type": "array", "items": { "type": "integer", "minimum": 0 }, "minItems": 1 },
-    "openai_days": { "type": "array", "items": { "type": "string" } },
-    "fallback_days": { "type": "array", "items": { "type": "string" } },
-    "counting": {
+  "oneOf": [
+    {
+      "title": "Provider-neutral schema v2",
       "type": "object",
+      "required": ["schema_version", "generated", "dates", "series"],
       "properties": {
-        "cache": { "enum": ["excluded", "included"] },
-        "claude": { "type": "string" },
-        "openai": { "type": "string" }
+        "schema_version": { "const": 2 },
+        "generated": { "type": "string" },
+        "dates": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "format": "date" }
+        },
+        "series": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "label", "daily"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "label": { "type": "string", "minLength": 1 },
+              "color": { "type": "string" },
+              "daily": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": "integer", "minimum": 0 }
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "notes": { "type": "array", "items": { "type": "string" } },
+        "counting": {
+          "type": "object",
+          "properties": { "cache": { "enum": ["excluded", "included", "mixed"] } },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    {
+      "title": "Legacy schema v1",
+      "type": "object",
+      "required": ["generated", "claude_daily", "openai_daily"],
+      "properties": {
+        "schema_version": { "type": "integer", "maximum": 1 },
+        "generated": { "type": "string" },
+        "claude_daily": {
+          "type": "array", "minItems": 1,
+          "items": { "type": "integer", "minimum": 0 }
+        },
+        "openai_daily": {
+          "type": "array", "minItems": 1,
+          "items": { "type": "integer", "minimum": 0 }
+        }
       },
       "additionalProperties": true
     }
-  },
-  "additionalProperties": true
+  ]
 }
