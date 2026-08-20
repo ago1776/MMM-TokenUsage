@@ -6,6 +6,7 @@ Module.register("MMM-TokenUsage", {
 		dataSource: "data.json",
 		header: "AI Usage · 14 days",
 		barMaxHeight: 96,
+		showScale: true,
 		providerColors: {},
 		colorClaude: "#c96f4a",
 		colorOpenAI: "#5aa6d8"
@@ -38,12 +39,25 @@ Module.register("MMM-TokenUsage", {
 			series.reduce((sum, item) => sum + Number(item.daily[i] || 0), 0));
 		const peak = Math.max(...totals, 1);
 		const H = this.config.barMaxHeight;
+		if (this.config.showScale !== false) {
+			const scale = document.createElement("div");
+			scale.className = "tu-scale";
+			const title = document.createElement("span");
+			title.textContent = "Skala / Tag";
+			const range = document.createElement("span");
+			range.appendChild(document.createTextNode("0 – "));
+			const value = document.createElement("b");
+			value.textContent = this.fmt(peak);
+			range.appendChild(value);
+			scale.appendChild(title);
+			scale.appendChild(range);
+			w.appendChild(scale);
+		}
 
 		const chart = document.createElement("div");
 		chart.className = "tu-chart";
 		chart.style.height = `${H + 16}px`;
 		const anchor = new Date(String(d.generated || "").replace(" ", "T"));
-		const peakIdx = totals.indexOf(peak);
 		for (let i = 0; i < n; i++) {
 			const col = document.createElement("div");
 			col.className = "tu-col";

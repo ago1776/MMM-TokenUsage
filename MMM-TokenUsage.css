@@ -2,6 +2,8 @@
 .tokenusage .tu-load { color: #9aa4b2; font-size: 16px; padding: 12px 0; }
 
 /* Chart */
+.tokenusage .tu-scale { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 5px; font-size: 12px; line-height: 14px; color: #9aa3ac; }
+.tokenusage .tu-scale b { color: #dfe4ea; font-weight: 600; }
 .tokenusage .tu-chart { display: flex; align-items: flex-end; gap: 4px; width: 100%; }
 .tokenusage .tu-col { display: flex; flex-direction: column; justify-content: flex-end; align-items: stretch; flex: 1 1 0; min-width: 6px; }
 .tokenusage .tu-stack { display: flex; flex-direction: column; justify-content: flex-end; border-radius: 5px 5px 0 0; overflow: hidden; }

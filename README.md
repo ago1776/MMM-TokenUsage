@@ -140,7 +140,7 @@ ssh mirror-host 'install -m 0644 /tmp/token-usage.json ~/MagicMirror/modules/MMM
 Alternatively expose the aggregate JSON through an existing internal web server and set
 `dataSource` to its URL.
 
-## Daily systemd timer
+## 15-minute systemd timer
 
 ```bash
 mkdir -p ~/.config/systemd/user
@@ -151,7 +151,8 @@ systemctl --user start mmm-tokenusage-collector.service
 ```
 
 The sample service expects `~/MagicMirror/modules/MMM-TokenUsage`, uses `Europe/Berlin`,
-and auto-detects the standard Claude Code/Codex locations. Adjust its command as needed.
+and auto-detects the standard Claude Code/Codex locations. It refreshes the atomic aggregate
+every 15 minutes, matching the module's default `updateInterval`. Adjust its command as needed.
 
 ## Configuration
 
@@ -161,6 +162,7 @@ and auto-detects the standard Claude Code/Codex locations. Adjust its command as
 | `updateInterval` | number | `900000`                | Refresh interval in milliseconds. |
 | `dataSource`     | string | `"data.json"`          | Relative JSON file or HTTP(S) URL. |
 | `barMaxHeight`   | number | `96`                    | Height of the tallest bar in pixels. |
+| `showScale`      | boolean | `true`                  | Show the compact `0 – peak` token scale above the chart. The peak is the largest combined daily value in the displayed range. |
 | `providerColors` | object | `{}`                    | Optional colour overrides keyed by provider id. |
 
 Example colour override:
