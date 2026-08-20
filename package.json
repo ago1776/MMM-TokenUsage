@@ -1,6 +1,6 @@
 {
   "name": "mmm-tokenusage",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Provider-neutral MagicMirror² module for daily AI token usage from local clients, JSON, CSV or HTTP feeds.",
   "main": "MMM-TokenUsage.js",
   "keywords": ["MagicMirror", "MMM-TokenUsage", "tokens", "usage", "chart", "ai"],

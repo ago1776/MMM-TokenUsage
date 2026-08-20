@@ -16,7 +16,7 @@ function read(source) {
 }
 
 (async () => {
-	const local = await read("data.json");
+	const local = await read("data.example.json");
 	assert.strictEqual(local.schema_version, 2);
 	assert.strictEqual(await read("../package.json"), null);
 
