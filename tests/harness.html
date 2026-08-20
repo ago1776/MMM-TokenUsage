@@ -21,7 +21,7 @@
 		(async () => {
 			const module = window.__module;
 			module.config = { ...module.defaults };
-			module.data_ = await fetch("../data.json").then(response => response.json());
+			module.data_ = await fetch("../data.example.json").then(response => response.json());
 			document.querySelector(".MMM-TokenUsage").appendChild(module.getDom());
 		})();
 	</script>

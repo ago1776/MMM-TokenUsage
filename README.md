@@ -10,6 +10,9 @@ The renderer does not need an AI runtime, provider account or API key. It only c
 small public data contract in [`data.schema.json`](data.schema.json). Legacy v1 files with
 fixed Claude/OpenAI arrays remain supported.
 
+Runtime `data.json` is intentionally ignored by Git, so scheduled collector updates can never
+block a future module update. [`data.example.json`](data.example.json) contains safe demo data.
+
 ## Installation
 
 ```bash
@@ -34,6 +37,12 @@ git clone https://github.com/ago1776/MMM-TokenUsage
 config: {
   dataSource: "http://192.168.1.20:8080/token-usage.json"
 }
+```
+
+For a quick preview before configuring a collector:
+
+```bash
+cp data.example.json data.json
 ```
 
 ## Easiest local setup
