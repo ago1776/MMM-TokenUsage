@@ -40,7 +40,7 @@ module.exports = NodeHelper.create({
 			done(data);
 		};
 		const client = source.startsWith("https://") ? https : http;
-		const request = client.get(source, { timeout: 10000, headers: { "User-Agent": "MMM-TokenUsage/1.2" } }, response => {
+		const request = client.get(source, { timeout: 10000, headers: { "User-Agent": "MMM-TokenUsage/1.3" } }, response => {
 			if (response.statusCode >= 300 && response.statusCode < 400 && response.headers.location) {
 				response.resume();
 				const next = new URL(response.headers.location, source).toString();
