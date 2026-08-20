@@ -10,6 +10,9 @@ global.Module = {
 require("../MMM-TokenUsage.js");
 
 definition.config = { ...definition.defaults, providerColors: { gemini: "#112233" } };
+assert.strictEqual(definition.defaults.updateInterval, 15 * 60 * 1000);
+assert.strictEqual(definition.defaults.showScale, true);
+assert.strictEqual(definition.fmt(16823296), "16,82 Mio.");
 
 const generic = definition.normalizedSeries({
 	schema_version: 2,

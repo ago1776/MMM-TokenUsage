@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MMM-TokenUsage render harness</title>
+	<style>
+		body { margin: 0; min-height: 100vh; display: flex; align-items: flex-start; justify-content: flex-end; background: #000; color: #fff; font-family: Roboto, Arial, sans-serif; }
+		.module { width: 420px; padding: 24px; }
+		.module-header { margin: 0 0 14px; padding-bottom: 6px; border-bottom: 1px solid #444; color: #aaa; font-size: 18px; text-transform: uppercase; }
+	</style>
+	<link rel="stylesheet" href="../MMM-TokenUsage.css">
+</head>
+<body>
+	<div class="module MMM-TokenUsage">
+		<div class="module-header">AI Usage · 14 days</div>
+	</div>
+	<script>window.Module = { register: (_name, definition) => { window.__module = definition; } };</script>
+	<script src="../MMM-TokenUsage.js"></script>
+	<script>
+		(async () => {
+			const module = window.__module;
+			module.config = { ...module.defaults };
+			module.data_ = await fetch("../data.json").then(response => response.json());
+			document.querySelector(".MMM-TokenUsage").appendChild(module.getDom());
+		})();
+	</script>
+</body>
+</html>
