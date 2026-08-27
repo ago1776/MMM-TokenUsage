@@ -5,7 +5,7 @@
   "main": "MMM-TokenUsage.js",
   "keywords": ["MagicMirror", "MMM-TokenUsage", "tokens", "usage", "chart", "ai"],
   "scripts": { "test": "python3 -m unittest discover -s tests -v && node tests/test_renderer.js && node tests/test_node_helper.js" },
-  "author": "Andreas Göpfert",
+  "author": "Andreas Göpfert <andi.goepfert@gmx.de> (https://github.com/ago1776)",
   "license": "MIT",
   "repository": { "type": "git", "url": "git+https://github.com/ago1776/MMM-TokenUsage.git" },
   "homepage": "https://github.com/ago1776/MMM-TokenUsage#readme",
