@@ -24,7 +24,7 @@ Module.register("MMM-TokenUsage", {
 	getHeader() { return this.config.header; },
 
 	socketNotificationReceived(notification, payload) {
-		if (notification === "TOKENUSAGE_DATA") { this.data_ = payload; this.updateDom(300); }
+		if (notification === "TOKENUSAGE_DATA") { this.data_ = payload; this.updateDom(this.config.animationSpeed); }
 	},
 
 	getDom() {
